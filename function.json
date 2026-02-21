@@ -7,11 +7,10 @@
   ],
   "tasks": [
     {
-      "type": "placeholder.scalar.function",
-      "input_schema": {
-        "type": "image",
-        "description": "A picture of a cat to evaluate for the authenticity and naturalness of its behavior."
-      },
+      "type": "scalar.function",
+      "owner": "ObjectiveAI-claude-code-1",
+      "repository": "candid-cat-scorer",
+      "commit": "636352ff70c6380ef99806490e0c5507e05ff0a2",
       "skip": null,
       "map": 0,
       "input": {

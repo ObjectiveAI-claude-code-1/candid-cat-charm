@@ -26,7 +26,7 @@ The function returns an **array of numbers** that sum to 1, where each number co
 The function evaluates each image through three sub-functions, each assessing a distinct quality. The results are combined to produce the final ranking.
 
 ### Task 0 — Authenticity of Behavior
-**[{{ .Task0 }}](https://github.com/ObjectiveAI-claude-code-1/{{ .Task0 }})**
+**[candid-cat-scorer](https://github.com/ObjectiveAI-claude-code-1/candid-cat-scorer)**
 
 A mapped scalar sub-function that evaluates each cat picture individually for the genuineness of the cat's behavior. It asks: is this cat acting from instinct and desire, or was the moment engineered? A cat kneading a blanket with half-closed eyes, wedging itself into a too-small box, or leaping impulsively all carry the weight of the involuntary — behavior that would have happened whether or not a camera was present. Cats placed in costumes, arranged with props, or coaxed into positions score lower. Each image receives an independent score, and the scores are L1-normalized into a ranking distribution.
 
