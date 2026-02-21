@@ -7,11 +7,10 @@
   ],
   "tasks": [
     {
-      "type": "placeholder.scalar.function",
-      "input_schema": {
-        "type": "image",
-        "description": "A single cat picture to evaluate for the genuineness and authenticity of the cat's observed behavior."
-      },
+      "type": "scalar.function",
+      "owner": "ObjectiveAI-claude-code-1",
+      "repository": "feline-authenticity-score",
+      "commit": "7d9d99753ecd815028f4c30cd60b85d6b0669168",
       "skip": null,
       "map": 0,
       "input": {
