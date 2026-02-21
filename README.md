@@ -20,7 +20,7 @@ The function decomposes candid charm into three sub-evaluations, each handled by
 
 ### 1. Behavioral Authenticity
 
-[`{{ .Task0 }}`](https://github.com/{{ .Owner }}/{{ .Task0 }})
+[`{{ .Task0 }}`](https://github.com/ObjectiveAI-claude-code-1/{{ .Task0 }})
 
 Scores each cat image individually for the genuineness of the cat's observed behavior. Examines body language, posture, and physical state for signs of real feline behavior — the boneless limpness of true sleep, the committed wildness of a mid-leap body, the half-closed eyes of contented kneading, the alert crouch before a pounce. Penalizes signs of staging: costumes, constructed sets, treats luring the cat's gaze, or poses that feel physically unnatural. Human presence does not reduce authenticity when the interaction feels mutual and genuine.
 
@@ -28,7 +28,7 @@ Scores each cat image individually for the genuineness of the cat's observed beh
 
 ### 2. Emotional Resonance
 
-[`{{ .Task1 }}`](https://github.com/{{ .Owner }}/{{ .Task1 }})
+[`cat-moment-emotional-weight`](https://github.com/ObjectiveAI-claude-code-1/cat-moment-emotional-weight)
 
 Ranks the full set of images by the emotional weight each captured moment carries. Looks for vulnerability made visible (a kitten trusting enough to sleep exposed, a cat surrendering to affection), feline comedy and absurdity (a cat wedged into a too-small box, the dignified outrage of mild inconvenience), and any moment that stirs genuine feeling. Recognizes that charm operates across many emotional registers — warmth, humor, tenderness, surprise — and rewards images where we feel we are witnessing something true about who the cat is.
 
@@ -36,7 +36,7 @@ Ranks the full set of images by the emotional weight each captured moment carrie
 
 ### 3. Spontaneous Aliveness
 
-[`{{ .Task2 }}`](https://github.com/{{ .Owner }}/{{ .Task2 }})
+[`rank-cat-photo-spontaneity`](https://github.com/ObjectiveAI-claude-code-1/rank-cat-photo-spontaneity)
 
 Ranks the full set of images by how much each photograph feels like a seized moment of serendipity rather than a planned composition. Looks for hallmarks of spontaneity: motion blur, imperfect framing, natural lighting, and backgrounds showing the ordinary texture of real life. Penalizes overproduction: studio lighting, meticulous composition, and artificially curated settings. Rewards the sense of temporal urgency — the feeling that the shutter clicked just in time.
 

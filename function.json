@@ -1,23 +1,10 @@
 {
   "type": "vector.function",
-  "input_schema": {
-    "type": "array",
-    "description": "A collection of cat pictures to rank by unselfconscious charm.",
-    "minItems": 2,
-    "items": {
-      "type": "image",
-      "description": "A picture of a cat to evaluate for the naturalness and authenticity of the captured moment."
+  "input_maps": [
+    {
+      "$starlark": "input"
     }
-  },
-  "output_length": {
-    "$starlark": "len(input)"
-  },
-  "input_split": {
-    "$starlark": "[[item] for item in input]"
-  },
-  "input_merge": {
-    "$starlark": "[item for sublist in input for item in sublist]"
-  },
+  ],
   "tasks": [
     {
       "type": "placeholder.scalar.function",
@@ -35,25 +22,10 @@
       }
     },
     {
-      "type": "placeholder.vector.function",
-      "input_schema": {
-        "type": "array",
-        "description": "A collection of cat pictures to rank by emotional resonance.",
-        "minItems": 2,
-        "items": {
-          "type": "image",
-          "description": "A cat picture to evaluate for the emotional weight and genuine feeling it evokes in the viewer."
-        }
-      },
-      "output_length": {
-        "$starlark": "len(input)"
-      },
-      "input_split": {
-        "$starlark": "[[item] for item in input]"
-      },
-      "input_merge": {
-        "$starlark": "[item for sublist in input for item in sublist]"
-      },
+      "type": "vector.function",
+      "owner": "ObjectiveAI-claude-code-1",
+      "repository": "cat-moment-emotional-weight",
+      "commit": "6fdaf14a6ca1b3ac5db8a5489f196c41b8a2012d",
       "skip": null,
       "input": {
         "$starlark": "input"
@@ -63,25 +35,10 @@
       }
     },
     {
-      "type": "placeholder.vector.function",
-      "input_schema": {
-        "type": "array",
-        "description": "A collection of cat pictures to rank by spontaneous aliveness.",
-        "minItems": 2,
-        "items": {
-          "type": "image",
-          "description": "A cat picture to evaluate for spontaneity and the quality of a seized, unplanned moment."
-        }
-      },
-      "output_length": {
-        "$starlark": "len(input)"
-      },
-      "input_split": {
-        "$starlark": "[[item] for item in input]"
-      },
-      "input_merge": {
-        "$starlark": "[item for sublist in input for item in sublist]"
-      },
+      "type": "vector.function",
+      "owner": "ObjectiveAI-claude-code-1",
+      "repository": "rank-cat-photo-spontaneity",
+      "commit": "95430a5c6d27c346b14c2a74af6a8afdd6a55d16",
       "skip": null,
       "input": {
         "$starlark": "input"
@@ -91,10 +48,23 @@
       }
     }
   ],
-  "input_maps": [
-    {
-      "$starlark": "input"
+  "input_split": {
+    "$starlark": "[[item] for item in input]"
+  },
+  "input_merge": {
+    "$starlark": "[item for sublist in input for item in sublist]"
+  },
+  "description": "Ranks cat pictures by unselfconscious charm, evaluating behavioral authenticity, emotional resonance, and spontaneous aliveness to surface images that capture genuine, unposed moments of cats being themselves over staged or contrived content.",
+  "input_schema": {
+    "type": "array",
+    "description": "A collection of cat pictures to rank by unselfconscious charm.",
+    "minItems": 2,
+    "items": {
+      "type": "image",
+      "description": "A picture of a cat to evaluate for the naturalness and authenticity of the captured moment."
     }
-  ],
-  "description": "Ranks cat pictures by unselfconscious charm, evaluating behavioral authenticity, emotional resonance, and spontaneous aliveness to surface images that capture genuine, unposed moments of cats being themselves over staged or contrived content."
+  },
+  "output_length": {
+    "$starlark": "len(input)"
+  }
 }
