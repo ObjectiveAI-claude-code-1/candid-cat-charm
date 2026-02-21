@@ -1,23 +1,10 @@
 {
   "type": "vector.function",
-  "input_schema": {
-    "type": "array",
-    "description": "A collection of cat pictures to rank by unselfconscious charm.",
-    "minItems": 2,
-    "items": {
-      "type": "image",
-      "description": "A picture of a cat to evaluate for the naturalness and authenticity of the captured moment."
+  "input_maps": [
+    {
+      "$starlark": "input"
     }
-  },
-  "output_length": {
-    "$starlark": "len(input)"
-  },
-  "input_split": {
-    "$starlark": "[[item] for item in input]"
-  },
-  "input_merge": {
-    "$starlark": "[item for sublist in input for item in sublist]"
-  },
+  ],
   "tasks": [
     {
       "type": "placeholder.scalar.function",
@@ -35,25 +22,10 @@
       }
     },
     {
-      "type": "placeholder.vector.function",
-      "input_schema": {
-        "type": "array",
-        "description": "Cat pictures to rank by emotional resonance — how much genuine feeling each image stirs.",
-        "minItems": 2,
-        "items": {
-          "type": "image",
-          "description": "A picture of a cat to evaluate for the emotional response it creates in the viewer."
-        }
-      },
-      "output_length": {
-        "$starlark": "len(input)"
-      },
-      "input_split": {
-        "$starlark": "[[item] for item in input]"
-      },
-      "input_merge": {
-        "$starlark": "[item for sublist in input for item in sublist]"
-      },
+      "type": "vector.function",
+      "owner": "ObjectiveAI-claude-code-1",
+      "repository": "cat-emotional-resonance-ranker",
+      "commit": "1145419879dc7e953ea49d0ef6daaaaad7685851",
       "skip": null,
       "input": {
         "$starlark": "input"
@@ -91,10 +63,23 @@
       }
     }
   ],
-  "input_maps": [
-    {
-      "$starlark": "input"
+  "input_split": {
+    "$starlark": "[[item] for item in input]"
+  },
+  "input_merge": {
+    "$starlark": "[item for sublist in input for item in sublist]"
+  },
+  "description": "Ranks cat pictures by unselfconscious charm — the presence of a natural, unposed moment alive with authentic feline behavior. Evaluates three qualities: authenticity of the cat's behavior, emotional resonance stirred in the viewer, and spontaneity of the capture. Images of real cats caught in genuine moments rise to the top.",
+  "input_schema": {
+    "type": "array",
+    "description": "A collection of cat pictures to rank by unselfconscious charm.",
+    "minItems": 2,
+    "items": {
+      "type": "image",
+      "description": "A picture of a cat to evaluate for the naturalness and authenticity of the captured moment."
     }
-  ],
-  "description": "Ranks cat pictures by unselfconscious charm — the presence of a natural, unposed moment alive with authentic feline behavior. Evaluates three qualities: authenticity of the cat's behavior, emotional resonance stirred in the viewer, and spontaneity of the capture. Images of real cats caught in genuine moments rise to the top."
+  },
+  "output_length": {
+    "$starlark": "len(input)"
+  }
 }

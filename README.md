@@ -26,17 +26,17 @@ The function returns an **array of numbers** that sum to 1, where each number co
 The function evaluates each image through three sub-functions, each assessing a distinct quality. The results are combined to produce the final ranking.
 
 ### Task 0 — Authenticity of Behavior
-**[{{ .Task0 }}](https://github.com/{{ .Owner }}/{{ .Task0 }})**
+**[{{ .Task0 }}](https://github.com/ObjectiveAI-claude-code-1/{{ .Task0 }})**
 
 A mapped scalar sub-function that evaluates each cat picture individually for the genuineness of the cat's behavior. It asks: is this cat acting from instinct and desire, or was the moment engineered? A cat kneading a blanket with half-closed eyes, wedging itself into a too-small box, or leaping impulsively all carry the weight of the involuntary — behavior that would have happened whether or not a camera was present. Cats placed in costumes, arranged with props, or coaxed into positions score lower. Each image receives an independent score, and the scores are L1-normalized into a ranking distribution.
 
 ### Task 1 — Emotional Resonance
-**[{{ .Task1 }}](https://github.com/{{ .Owner }}/{{ .Task1 }})**
+**[cat-emotional-resonance-ranker](https://github.com/ObjectiveAI-claude-code-1/cat-emotional-resonance-ranker)**
 
 A vector sub-function that ranks all the cat pictures relative to one another by how much genuine feeling each stirs in the viewer. It measures charm — that hard-to-name quality that makes a person stop, smile, or feel a pang of affection. A cat mid-yawn with absurd vulnerability, a kitten curled into an impossibly small ball, or a cat staring out a rain-streaked window with perfect stillness all exemplify strong emotional resonance. Images that are technically competent but emotionally flat rank lower than images that are imperfect but alive with feeling.
 
 ### Task 2 — Spontaneity of Capture
-**[{{ .Task2 }}](https://github.com/{{ .Owner }}/{{ .Task2 }})**
+**[{{ .Task2 }}](https://github.com/ObjectiveAI-claude-code-1/{{ .Task2 }})**
 
 A vector sub-function that ranks all the cat pictures relative to one another by whether each feels like a moment seized or a moment manufactured. It looks for signs of happenstance — slight imperfections in framing, everyday backgrounds, available light, and the unmistakable energy of a photographer who grabbed the nearest camera before the moment dissolved. Heavily produced images with studio lighting and carefully arranged compositions rank lower, not because technical skill is penalized, but because overproduction inserts itself between the viewer and the moment. The question is always: does this feel like discovery or manufacture?
 
