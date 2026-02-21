@@ -42,7 +42,7 @@ The function decomposes candid cat charm into three distinct qualities, each han
 
 ### 1. Authenticity of Behavior
 
-**Sub-function:** [`{{ .Task0 }}`](https://github.com/{{ .Owner }}/{{ .Task0 }})
+**Sub-function:** [`rank-cat-authenticity`](https://github.com/ObjectiveAI-claude-code-1/rank-cat-authenticity)
 
 The most foundational evaluation. This sub-function ranks images by whether the cat's behavior feels genuine — arising from the animal's own instincts and impulses rather than being arranged for the camera. It distinguishes between a cat expressing its own nature (kneading, leaping, stalking, sleeping in absurd positions, grooming) and a cat being used as a prop for human cleverness (costumed, held up, posed). The critical question: *does this cat's behavior feel real, the kind of thing it would do whether or not anyone was watching?*
 
@@ -51,7 +51,7 @@ The most foundational evaluation. This sub-function ranks images by whether the 
 
 ### 2. Emotional Resonance of the Moment
 
-**Sub-function:** [`{{ .Task1 }}`](https://github.com/{{ .Owner }}/{{ .Task1 }})
+**Sub-function:** [`cat-photo-emotional-resonance`](https://github.com/ObjectiveAI-claude-code-1/cat-photo-emotional-resonance)
 
 This sub-function scores each image individually for how much genuine emotional power lives within the captured moment — and whether that power arises from the moment itself or from artificial packaging layered on top. It asks whether the image would still move you if you stripped away every caption, filter, and text overlay. Images where the feeling is inseparable from the moment score highest. Images that rely on embellishments to simulate resonance they don't inherently possess score lowest.
 
@@ -60,7 +60,7 @@ This sub-function scores each image individually for how much genuine emotional 
 
 ### 3. Quality of Witnessing
 
-**Sub-function:** [`{{ .Task2 }}`](https://github.com/{{ .Owner }}/{{ .Task2 }})
+**Sub-function:** [`rank-cats-by-witnessing`](https://github.com/ObjectiveAI-claude-code-1/rank-cats-by-witnessing)
 
 The most subtle evaluation. This sub-function ranks images by whether they feel like moments that were *discovered and caught* rather than *deliberately produced*. It looks for the texture of accident, spontaneity, and fortunate timing — signs that someone was present, paying attention, and recognized something worth preserving. It also evaluates the sense of impermanence: the feeling that this fleeting instant was almost lost but was, through luck and attention, saved.
 

@@ -1,5 +1,58 @@
 {
   "type": "vector.function",
+  "input_maps": [
+    {
+      "$starlark": "input"
+    }
+  ],
+  "tasks": [
+    {
+      "type": "vector.function",
+      "owner": "ObjectiveAI-claude-code-1",
+      "repository": "rank-cat-authenticity",
+      "commit": "357623c1c3547c26b77edbc05c29352ad8360031",
+      "skip": null,
+      "input": {
+        "$starlark": "input"
+      },
+      "output": {
+        "$starlark": "output"
+      }
+    },
+    {
+      "type": "scalar.function",
+      "owner": "ObjectiveAI-claude-code-1",
+      "repository": "cat-photo-emotional-resonance",
+      "commit": "b79aa2d2a05c02454a52bb33e015351001108624",
+      "map": 0,
+      "input": {
+        "$starlark": "map"
+      },
+      "output": {
+        "$starlark": "[x / sum(output) for x in output] if sum(output) > 0 else [1.0 / len(output) for x in output]"
+      }
+    },
+    {
+      "type": "vector.function",
+      "owner": "ObjectiveAI-claude-code-1",
+      "repository": "rank-cats-by-witnessing",
+      "commit": "34a41f48612c627fb72e6947927ae5f45f2bf1b0",
+      "skip": null,
+      "input": {
+        "$starlark": "input"
+      },
+      "output": {
+        "$starlark": "output"
+      }
+    }
+  ],
+  "input_split": {
+    "$starlark": "[[item] for item in input]"
+  },
+  "input_merge": {
+    "$starlark": "[item for sublist in input for item in sublist]"
+  },
+  "description": "Ranks cat pictures by unselfconscious charm — the presence of a natural, unposed moment alive with authentic cat behavior. Evaluates authenticity of behavior, emotional resonance of the captured moment, and quality of witnessing over production, elevating honest candid moments over contrived or staged images.",
   "input_schema": {
     "type": "array",
     "description": "A collection of cat pictures to rank by unselfconscious charm.",
@@ -11,89 +64,5 @@
   },
   "output_length": {
     "$starlark": "len(input)"
-  },
-  "input_split": {
-    "$starlark": "[[item] for item in input]"
-  },
-  "input_merge": {
-    "$starlark": "[item for sublist in input for item in sublist]"
-  },
-  "tasks": [
-    {
-      "type": "placeholder.vector.function",
-      "input_schema": {
-        "type": "array",
-        "description": "Cat pictures to rank by authenticity of feline behavior.",
-        "minItems": 2,
-        "items": {
-          "type": "image",
-          "description": "A cat picture to evaluate for behavioral authenticity."
-        }
-      },
-      "output_length": {
-        "$starlark": "len(input)"
-      },
-      "input_split": {
-        "$starlark": "[[item] for item in input]"
-      },
-      "input_merge": {
-        "$starlark": "[item for sublist in input for item in sublist]"
-      },
-      "skip": null,
-      "input": {
-        "$starlark": "input"
-      },
-      "output": {
-        "$starlark": "output"
-      }
-    },
-    {
-      "type": "placeholder.scalar.function",
-      "input_schema": {
-        "type": "image",
-        "description": "A cat picture to evaluate for the emotional resonance of the captured moment."
-      },
-      "map": 0,
-      "input": {
-        "$starlark": "map"
-      },
-      "output": {
-        "$starlark": "[x / sum(output) for x in output] if sum(output) > 0 else [1.0 / len(output) for x in output]"
-      }
-    },
-    {
-      "type": "placeholder.vector.function",
-      "input_schema": {
-        "type": "array",
-        "description": "Cat pictures to rank by the quality of witnessing.",
-        "minItems": 2,
-        "items": {
-          "type": "image",
-          "description": "A cat picture to evaluate for witnessing quality — whether the moment feels discovered or produced."
-        }
-      },
-      "output_length": {
-        "$starlark": "len(input)"
-      },
-      "input_split": {
-        "$starlark": "[[item] for item in input]"
-      },
-      "input_merge": {
-        "$starlark": "[item for sublist in input for item in sublist]"
-      },
-      "skip": null,
-      "input": {
-        "$starlark": "input"
-      },
-      "output": {
-        "$starlark": "output"
-      }
-    }
-  ],
-  "input_maps": [
-    {
-      "$starlark": "input"
-    }
-  ],
-  "description": "Ranks cat pictures by unselfconscious charm — the presence of a natural, unposed moment alive with authentic cat behavior. Evaluates authenticity of behavior, emotional resonance of the captured moment, and quality of witnessing over production, elevating honest candid moments over contrived or staged images."
+  }
 }
