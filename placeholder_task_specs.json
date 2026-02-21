@@ -1,0 +1,14 @@
+[
+  {
+    "spec": "Evaluate a single cat picture for the authenticity and naturalness of the cat's behavior. Score higher when the cat appears to be genuinely being itself — acting from instinct and desire, unaware of or indifferent to the camera. Look for the weight of the involuntary: a cat kneading a blanket with half-closed eyes, wedging itself into a too-small box, leaping impulsively, or caught in any posture that feels unperformed and real. Score lower when the moment appears engineered — a cat placed in a costume, arranged with props, or coaxed into a position for the camera. The key question is whether the behavior would have happened whether or not anyone was there to see it. A cat that is living scores higher than a cat that has been directed.",
+    "token": "afd2f21a-91b8-44c7-b304-f35813ca0512"
+  },
+  {
+    "spec": "Rank the provided cat pictures by their emotional resonance — the degree to which each image stirs genuine feeling in the viewer. Images that create delight, tenderness, humor, wonder, or quiet contemplation should rank higher. Look for images that move past being merely a visual record and become something felt — where there is an emotional bridge between the cat's experience and the human viewer. A cat mid-yawn with absurd vulnerability, a kitten curled into an impossibly small ball, or a cat staring out a rain-streaked window with perfect stillness all exemplify strong emotional resonance. Images that are technically competent but emotionally flat should rank lower than images that are imperfect but alive with feeling. The task is to measure charm — that hard-to-name quality that makes a person stop, smile, or feel a pang of affection.",
+    "token": "440d63ff-bd0e-4ee9-9aa5-700e513bb606"
+  },
+  {
+    "spec": "Rank the provided cat pictures by the spontaneity of their capture — whether each image feels like a moment seized rather than a moment constructed. Look for telltale signs of happenstance: slight imperfections in framing, everyday backgrounds, available light, and a sense that the photographer grabbed the nearest camera before the moment dissolved. These imperfections are proof the moment was real and fleeting. Rank lower images that feel heavily produced — studio-perfect lighting, carefully arranged backgrounds, composition so deliberate it feels sterile — where the apparatus of production inserts itself between the viewer and the moment. A skilled photographer using a good camera does not automatically rank low; the question is whether the image feels like discovery or manufacture. Rank highest the images that radiate the energy of a moment caught rather than created.",
+    "token": "6ed6c7c6-5f0c-4e50-a99a-905cd3c3ab94"
+  }
+]

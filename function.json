@@ -1,0 +1,100 @@
+{
+  "type": "vector.function",
+  "input_schema": {
+    "type": "array",
+    "description": "A collection of cat pictures to rank by unselfconscious charm.",
+    "minItems": 2,
+    "items": {
+      "type": "image",
+      "description": "A picture of a cat to evaluate for the naturalness and authenticity of the captured moment."
+    }
+  },
+  "output_length": {
+    "$starlark": "len(input)"
+  },
+  "input_split": {
+    "$starlark": "[[item] for item in input]"
+  },
+  "input_merge": {
+    "$starlark": "[item for sublist in input for item in sublist]"
+  },
+  "tasks": [
+    {
+      "type": "placeholder.scalar.function",
+      "input_schema": {
+        "type": "image",
+        "description": "A picture of a cat to evaluate for the authenticity and naturalness of its behavior."
+      },
+      "skip": null,
+      "map": 0,
+      "input": {
+        "$starlark": "map"
+      },
+      "output": {
+        "$starlark": "[score / sum(output) if sum(output) > 0 else 1.0 / len(output) for score in output]"
+      }
+    },
+    {
+      "type": "placeholder.vector.function",
+      "input_schema": {
+        "type": "array",
+        "description": "Cat pictures to rank by emotional resonance — how much genuine feeling each image stirs.",
+        "minItems": 2,
+        "items": {
+          "type": "image",
+          "description": "A picture of a cat to evaluate for the emotional response it creates in the viewer."
+        }
+      },
+      "output_length": {
+        "$starlark": "len(input)"
+      },
+      "input_split": {
+        "$starlark": "[[item] for item in input]"
+      },
+      "input_merge": {
+        "$starlark": "[item for sublist in input for item in sublist]"
+      },
+      "skip": null,
+      "input": {
+        "$starlark": "input"
+      },
+      "output": {
+        "$starlark": "output"
+      }
+    },
+    {
+      "type": "placeholder.vector.function",
+      "input_schema": {
+        "type": "array",
+        "description": "Cat pictures to rank by the spontaneity of their capture — whether each feels seized or manufactured.",
+        "minItems": 2,
+        "items": {
+          "type": "image",
+          "description": "A picture of a cat to evaluate for whether it feels like a candidly captured moment."
+        }
+      },
+      "output_length": {
+        "$starlark": "len(input)"
+      },
+      "input_split": {
+        "$starlark": "[[item] for item in input]"
+      },
+      "input_merge": {
+        "$starlark": "[item for sublist in input for item in sublist]"
+      },
+      "skip": null,
+      "input": {
+        "$starlark": "input"
+      },
+      "output": {
+        "$starlark": "output"
+      }
+    }
+  ],
+  "input_maps": [
+    {
+      "$starlark": "input"
+    }
+  ],
+  "description": "Ranks cat pictures by unselfconscious charm — the presence of a natural, unposed moment alive with authentic feline behavior. Evaluates three qualities: authenticity of the cat's behavior, emotional resonance stirred in the viewer, and spontaneity of the capture. Images of real cats caught in genuine moments rise to the top."
+}
