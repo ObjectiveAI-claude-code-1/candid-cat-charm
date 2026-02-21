@@ -1,55 +1,72 @@
 # candid-cat-charm
 
-A vector function that ranks cat pictures by their unselfconscious charm — finding the images where a cat is caught in the honest act of being a cat.
+Rank cat pictures by their unselfconscious charm — the presence of a natural, unposed moment that feels alive with authentic cat behavior.
 
 ## Overview
 
-`candid-cat-charm` is not concerned with photographic quality, resolution, or composition. It cares about something more elusive: whether an image preserves a real moment. Whether the cat in the frame is performing for no one, living in the private theater of its own instincts, and the camera happened to be there. The function takes a collection of cat pictures and produces a ranking that surfaces the most genuinely charming images — the ones that feel like small acts of witnessing rather than staged productions.
+The internet is full of cat pictures, but we instinctively know that some are better than others. Not better in resolution or composition — better in the way that matters: the presence of something honest. `candid-cat-charm` exists to find those moments and elevate them. It ranks cat images not by photographic merit, but by how genuinely they capture a cat being itself — a kitten curled into an impossibly small ball, a cat caught mid-leap with all four legs splayed, a cat kneading a blanket with half-closed eyes lost in private contentment.
+
+A blurry snapshot of a cat startled into an absurd posture will outrank a polished studio portrait, because the function does not care about the camera. It cares about the cat.
 
 ## Input
 
-The function accepts an **array of cat images** (minimum 2).
+The function accepts an **array of cat images** (minimum 2) and produces a probability distribution ranking them by unselfconscious charm.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `input` | `array` | A collection of cat pictures to rank by unselfconscious charm. |
-| `input[n]` | `image` | A picture of a cat to evaluate for the naturalness and authenticity of the captured moment. |
-
-Images can be of any provenance — professional photographs, phone snapshots, or anything in between. What matters is not how the image was made, but what it holds.
+```json
+{
+  "type": "array",
+  "description": "A collection of cat pictures to rank by unselfconscious charm.",
+  "minItems": 2,
+  "items": {
+    "type": "image",
+    "description": "A picture of a cat to evaluate for the naturalness and authenticity of the captured moment."
+  }
+}
+```
 
 ## Output
 
-The function returns an **array of numbers** that sum to 1, where each number corresponds to the input image at the same index. Higher values indicate greater unselfconscious charm. The output represents a probability-style ranking: the distribution of charm across the input images relative to one another.
+A **vector** — an array of numbers that sum to approximately 1, where each value represents the relative candid charm of the corresponding input image. Higher values indicate images with more genuine, unselfconscious charm. The output preserves input order: `output[i]` is the charm score for `input[i]`.
 
-## How It Works
+## Use Cases
 
-The function evaluates each image through three sub-functions, each assessing a distinct quality. The results are combined to produce the final ranking.
+- **Content platforms**: Surface the most delightful cat content from millions of uploads, prioritizing the candid over the curated
+- **Animal shelters**: Select adoption photos that show cats as they truly are — relaxed, curious, themselves — rather than stiff and frightened in a sterile cage
+- **Personal photo libraries**: Sort so the truly magical moments rise to the top — the ones you forgot you captured, the ones that make you laugh or ache with tenderness years later
+- **Content curation**: Filter and rank user-submitted cat content for newsletters, social feeds, or community galleries based on authentic charm rather than production value
+- **Creative projects**: Identify reference images that capture genuine feline behavior for artists, writers, or filmmakers seeking authentic cat moments
 
-### Task 0 — Authenticity of Behavior
-**[candid-cat-scorer](https://github.com/ObjectiveAI-claude-code-1/candid-cat-scorer)**
+## What It Evaluates
 
-A mapped scalar sub-function that evaluates each cat picture individually for the genuineness of the cat's behavior. It asks: is this cat acting from instinct and desire, or was the moment engineered? A cat kneading a blanket with half-closed eyes, wedging itself into a too-small box, or leaping impulsively all carry the weight of the involuntary — behavior that would have happened whether or not a camera was present. Cats placed in costumes, arranged with props, or coaxed into positions score lower. Each image receives an independent score, and the scores are L1-normalized into a ranking distribution.
+The function decomposes candid cat charm into three distinct qualities, each handled by a dedicated sub-function. The final ranking is a weighted blend of all three evaluations.
 
-### Task 1 — Emotional Resonance
-**[cat-emotional-resonance-ranker](https://github.com/ObjectiveAI-claude-code-1/cat-emotional-resonance-ranker)**
+### 1. Authenticity of Behavior
 
-A vector sub-function that ranks all the cat pictures relative to one another by how much genuine feeling each stirs in the viewer. It measures charm — that hard-to-name quality that makes a person stop, smile, or feel a pang of affection. A cat mid-yawn with absurd vulnerability, a kitten curled into an impossibly small ball, or a cat staring out a rain-streaked window with perfect stillness all exemplify strong emotional resonance. Images that are technically competent but emotionally flat rank lower than images that are imperfect but alive with feeling.
+**Sub-function:** [`{{ .Task0 }}`](https://github.com/{{ .Owner }}/{{ .Task0 }})
 
-### Task 2 — Spontaneity of Capture
-**[{{ .Task2 }}](https://github.com/ObjectiveAI-claude-code-1/{{ .Task2 }})**
+The most foundational evaluation. This sub-function ranks images by whether the cat's behavior feels genuine — arising from the animal's own instincts and impulses rather than being arranged for the camera. It distinguishes between a cat expressing its own nature (kneading, leaping, stalking, sleeping in absurd positions, grooming) and a cat being used as a prop for human cleverness (costumed, held up, posed). The critical question: *does this cat's behavior feel real, the kind of thing it would do whether or not anyone was watching?*
 
-A vector sub-function that ranks all the cat pictures relative to one another by whether each feels like a moment seized or a moment manufactured. It looks for signs of happenstance — slight imperfections in framing, everyday backgrounds, available light, and the unmistakable energy of a photographer who grabbed the nearest camera before the moment dissolved. Heavily produced images with studio lighting and carefully arranged compositions rank lower, not because technical skill is penalized, but because overproduction inserts itself between the viewer and the moment. The question is always: does this feel like discovery or manufacture?
+**Ranks higher:** A cat caught mid-sneeze. A cat wedged into a box three sizes too small. A cat batting at dust motes in a sunbeam.
+**Ranks lower:** A cat in a costume held to mimic a human pose. A cat placed on a prop for a staged photo. Any image where the cat is a vehicle for human contrivance rather than a subject in its own right.
 
-## Use-Cases
+### 2. Emotional Resonance of the Moment
 
-- **Social media platforms** surfacing the most genuinely delightful cat content rather than the most polished or viral
-- **Photo apps** helping users sort through hundreds of pictures of their cat to find the ones that truly capture their pet's spirit
-- **Online communities** celebrating the most honestly captured moments of feline life
-- **Content curation** that values authenticity and emotional connection over production value
-- **Anyone** who has ever scrolled past a thousand perfectly lit cat portraits and stopped dead at a blurry photo of a cat asleep in a salad bowl
+**Sub-function:** [`{{ .Task1 }}`](https://github.com/{{ .Owner }}/{{ .Task1 }})
+
+This sub-function scores each image individually for how much genuine emotional power lives within the captured moment — and whether that power arises from the moment itself or from artificial packaging layered on top. It asks whether the image would still move you if you stripped away every caption, filter, and text overlay. Images where the feeling is inseparable from the moment score highest. Images that rely on embellishments to simulate resonance they don't inherently possess score lowest.
+
+**Scores higher:** A cat asleep with its tongue slightly protruding. A cat curled protectively around a kitten. The visible relaxation of a cat choosing to be close to its person.
+**Scores lower:** A heavily filtered image with overlaid "relatable" text. An image whose emotional appeal depends entirely on its caption. Content engineered for viral shareability rather than genuine feeling.
+
+### 3. Quality of Witnessing
+
+**Sub-function:** [`{{ .Task2 }}`](https://github.com/{{ .Owner }}/{{ .Task2 }})
+
+The most subtle evaluation. This sub-function ranks images by whether they feel like moments that were *discovered and caught* rather than *deliberately produced*. It looks for the texture of accident, spontaneity, and fortunate timing — signs that someone was present, paying attention, and recognized something worth preserving. It also evaluates the sense of impermanence: the feeling that this fleeting instant was almost lost but was, through luck and attention, saved.
+
+**Ranks higher:** A cat mid-yawn with every tooth on display. A kitten's first encounter with snow. An imperfectly framed shot of a cat in a sunbeam on a cluttered desk. Anything that says *"look what I was lucky enough to see."*
+**Ranks lower:** Studio-lit pet portraits. Images with controlled backdrops and deliberate composition. Anything that announces its own production — the unmistakable air of a photoshoot rather than a life lived alongside a cat.
 
 ## Philosophy
 
-The three evaluation qualities — authenticity of behavior, emotional resonance, and spontaneity of capture — form a triangle. An image must be strong across all three to rank at the top. A staged photo of a cat in a costume may be emotionally engaging but fails on authenticity and spontaneity. A candid snapshot of a cat sleeping in an unremarkable position may be authentic and spontaneous but lacks emotional resonance. The highest-ranked images are those where a real cat, doing a real thing, was captured in a real moment, and the resulting photograph makes a human being feel the particular joy of having witnessed something small and wonderful.
-
-At its heart, `candid-cat-charm` is built on a simple conviction: the best cat pictures are acts of love and attention, made by people who noticed something and felt compelled to preserve it.
+The best cat pictures feel like small acts of witnessing rather than staged productions. They say: *look, here is this creature doing what it does, and isn't it wonderful that we get to see it.* Cats do not perform — they simply are. The best pictures of them honor that by simply watching, and being grateful for what they see. This function exists to find those pictures and place them where they belong: at the top.
